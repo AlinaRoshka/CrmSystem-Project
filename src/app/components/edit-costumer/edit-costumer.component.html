@@ -1,0 +1,30 @@
+<div class="container p-4 m-3">
+    <h2>Update Costumer Details</h2>
+    <form #costumerForm="ngForm" (ngSubmit)="updateCostumer()">
+        <div class="form-group m-3">
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" class="form-control m-1" id="firstName" [(ngModel)]="costumer.firstName"
+                #firstName="ngModel" required>
+        </div>
+        <div class="form-group m-3">
+            <label for="lastName">lastName:</label>
+            <input type="text" name="lastName" class="form-control m-1" id="lastName" [(ngModel)]="costumer.lastName"
+                #lastName="ngModel" required>
+        </div>
+        <div class="form-group m-3">
+            <label for="phone">Phone:</label>
+            <input type="number" name="phone" class="form-control m-1" id="phone" [(ngModel)]="costumer.phone"
+                #phone="ngModel" required>
+        </div>
+
+        <div class="form-group m-3">
+            <label for="email">email:</label>
+            <input type="text" name="email" class="form-control m-1" id="email" [(ngModel)]="costumer.email"
+                #email="ngModel" required>
+        </div>
+
+        <button type="submit" class="btn btn-success m-auto mx-2" [disabled]="costumerForm.invalid">Edit Costumer</button>
+        <button type="button" class="btn btn-danger m-auto" (click)="closeModal()">
+            Close </button>
+    </form>
+</div>

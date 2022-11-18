@@ -1,0 +1,14 @@
+<div class="container p-4">
+    <h2> Costumer Details</h2>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{costumer.firstName}} {{costumer.lastName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Phone: {{costumer.phone}}</h6>
+
+            <p class="card-text">Email: {{costumer.email}}</p>
+            <button type="button" class="btn btn-danger" (click)="closeModal()">
+                Close </button>
+        </div>
+    </div>
+
+</div>

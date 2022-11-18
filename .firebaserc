@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crmsystemalina": {
+      "hosting": {
+        "crmSystem": [
+          "crmsystemalina"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crmsystemalina"
+  }
+}

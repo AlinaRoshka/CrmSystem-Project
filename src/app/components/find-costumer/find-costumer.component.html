@@ -1,0 +1,41 @@
+<div class=" container-fluid d-flex m-2">
+    <input type="text" class="form-control w-25 m-1" placeholder="First Name" [(ngModel)]="costumerFirstName" />
+    <input type="text" class="form-control w-25 m-1" placeholder="Last Name" [(ngModel)]="costumerLastName" />
+    <input type="text" class="form-control w-25 m-1" placeholder="Phone" [(ngModel)]="costumerPhone" />
+    <input type="text" class="form-control w-25 m-1" placeholder="Email" [(ngModel)]="costumerEmail" />
+</div>
+
+<div class="m-3"
+    *ngIf="costumers |filter:'firstName':costumerFirstName |filter:'lastName':costumerLastName |filter:'phone':costumerPhone|filter:'email':costumerEmail as costumers ">
+    <ng-container class="m-3" *ngIf="costumers.length !=0; else nocostumers">
+
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let costumer of costumers">
+
+                    <td>{{costumer.firstName}}</td>
+                    <td>{{costumer.lastName}}</td>
+                    <td>{{costumer.phone}}</td>
+                    <td>{{costumer.email}}</td>
+
+
+                </tr>
+
+            </tbody>
+        </table>
+    </ng-container>
+    <ng-template #nocostumers>
+        <p>No costumers found</p>
+    </ng-template>
+    <button type="button" class="btn btn-danger" (click)="closeModal()">
+        Close </button>
+</div>

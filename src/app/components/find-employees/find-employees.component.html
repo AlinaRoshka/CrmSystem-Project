@@ -1,0 +1,40 @@
+<div class="d-flex m-3">
+    <input type="text" class="form-control w-25 m-1" placeholder="Full Name" [(ngModel)]="employeeName" />
+    <input type="text" class="form-control w-25 m-1" placeholder="Phone" [(ngModel)]="employeePhone" />
+    <input type="text" class="form-control w-25 m-1" placeholder="Email" [(ngModel)]="employeeEmail" />
+    <input type="text" class="form-control w-25 m-1" placeholder="Job" [(ngModel)]="employeejob" />
+</div>
+
+<div class="m-3" *ngIf="employees |fillterEmp:'name':employeeName |fillterEmp:'phone':employeePhone |fillterEmp:'email':employeeEmail|fillterEmp:'job':employeejob 
+  as employees ">
+    <div>
+        <ng-container class="m-3" *ngIf="employees.length !=0; else noemployees">
+
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">job</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let emloyee of employees">
+
+                        <td>{{emloyee.name}}</td>
+                        <td>{{emloyee.phone}}</td>
+                        <td>{{emloyee.email}}</td>
+                        <td>{{emloyee.job}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </ng-container>
+        <ng-template #noemployees>
+            <p>No employees found</p>
+        </ng-template>
+        <button type="button" class="btn btn-danger m-auto" (click)="closeModal()">
+            Close </button>
+    </div>
